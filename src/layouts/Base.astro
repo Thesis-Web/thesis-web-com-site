@@ -1,0 +1,67 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "Thesis Project — Money that answers to physics",
+  description = "THE is an energy-anchored monetary system designed for fairness, auditability, and long-term stability.",
+  canonical = "https://thesisweb.com/",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${canonical}og.jpg`} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${canonical}og.jpg`} />
+
+    <title>{title}</title>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Thesis Project",
+        url: canonical,
+        description,
+      })}
+    </script>
+
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+
+  <body class="min-h-screen bg-neutral-950 text-neutral-100 antialiased">
+    <div class="pointer-events-none fixed inset-0 opacity-40 [background:radial-gradient(80%_60%_at_50%_0%,rgba(34,211,238,0.12),transparent_60%),radial-gradient(60%_40%_at_20%_60%,rgba(99,102,241,0.10),transparent_55%),radial-gradient(50%_35%_at_80%_70%,rgba(16,185,129,0.08),transparent_60%)]"></div>
+    <div class="pointer-events-none fixed inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,rgba(255,255,255,0.7)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.7)_1px,transparent_1px)] [background-size:48px_48px]"></div>
+
+    <main class="relative mx-auto w-full max-w-6xl px-6 py-10 md:py-16">
+      <slot />
+    </main>
+
+    <style is:global>
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+    </style>
+  </body>
+</html>

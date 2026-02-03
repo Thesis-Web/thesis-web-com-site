@@ -1,0 +1,6 @@
+cat > public/favicon.svg <<'EOF'
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="24" fill="#0a0a0a"/>
+  <path d="M30 38h60v10H65v44H55V48H30z" fill="#67e8f9"/>
+</svg>
+

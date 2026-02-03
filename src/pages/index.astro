@@ -1,0 +1,78 @@
+---
+import Base from "../layouts/Base.astro";
+import TerminalHero from "../components/TerminalHero.astro";
+import EmailCapture from "../components/EmailCapture.astro";
+import Donate from "../components/Donate.astro";
+---
+
+<Base
+  title="Thesis Project — Money that answers to physics"
+  description="THE is an energy-anchored monetary system designed for fairness, auditability, and long-term stability."
+  canonical="https://thesisweb.com/"
+>
+  <header class="mb-10 flex items-center justify-between">
+    <div class="text-sm font-semibold tracking-wide text-white/80">thesisweb.com</div>
+    <nav class="flex gap-4 text-sm text-white/70">
+      <a class="hover:text-white/90" href="#why">Why</a>
+      <a class="hover:text-white/90" href="#how">How</a>
+      <a class="hover:text-white/90" href="#launch">Launch</a>
+      <a class="hover:text-white/90" href="#support">Support</a>
+    </nav>
+  </header>
+
+  <TerminalHero />
+
+  <section id="why" class="mt-10 grid gap-6 md:grid-cols-2">
+    <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-semibold text-white/90">Why this exists</h2>
+      <p class="mt-2 text-sm leading-6 text-white/75">
+        Modern money systems can be reshaped by incentives you don’t control. Over time,
+        the unit you save in can be diluted, repriced, or redesigned — and participation tends to centralize.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-semibold text-white/90">The thesis</h2>
+      <p class="mt-2 text-sm leading-6 text-white/75">
+        THE is built around a hard constraint: value should be legible to physics.
+        Energy is the universal cost of doing work — so THE anchors its unit-of-account to energy
+        and designs fairness and auditability into the system rules.
+      </p>
+    </div>
+  </section>
+
+  <section id="how" class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+    <h2 class="text-lg font-semibold text-white/90">How it works</h2>
+    <p class="mt-2 max-w-3xl text-sm leading-6 text-white/75">
+      A stable unit-of-account for pricing, participation tied to contribution, and auditability as a rule — not a promise.
+    </p>
+
+    <div class="mt-6 grid gap-4 md:grid-cols-3">
+      <div class="rounded-2xl border border-white/10 bg-black/20 p-5">
+        <div class="text-sm font-semibold text-white/90">Energy Units (EU)</div>
+        <div class="mt-2 text-sm leading-6 text-white/75">
+          A stable reference for wallets and commerce — designed for legible pricing.
+        </div>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-black/20 p-5">
+        <div class="text-sm font-semibold text-white/90">Proof of Energy Fairness (PoEF)</div>
+        <div class="mt-2 text-sm leading-6 text-white/75">
+          Participation tied to contribution — designed to resist “buying advantage”.
+        </div>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-black/20 p-5">
+        <div class="text-sm font-semibold text-white/90">Auditability by design</div>
+        <div class="mt-2 text-sm leading-6 text-white/75">
+          Rules and accounting intended to be verifiable and transparent.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <EmailCapture />
+  <Donate />
+
+  <footer class="mt-12 border-t border-white/10 pt-6 text-xs text-white/45">
+    © {new Date().getFullYear()} Thesis Project. All rights reserved.
+  </footer>
+</Base>
