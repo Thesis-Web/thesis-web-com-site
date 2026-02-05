@@ -1,0 +1,53 @@
+---
+import Base from "../layouts/Base.astro";
+import TerminalDonate from "../components/TerminalDonate.astro";
+
+const paypalUrl = "https://www.paypal.me/jameshuson1";
+const venmoUrl = "https://venmo.com/u/James-Huson-2";
+---
+
+<Base
+  title="Support — Thesis Project"
+  description="Support independent research and public documentation."
+  canonical="https://thesisweb.com/donate"
+>
+  <header class="mb-10 flex items-center justify-between">
+    <div class="text-sm font-semibold tracking-wide text-white/80">thesisweb.com</div>
+    <nav class="flex gap-4 text-sm text-white/70">
+      <a class="hover:text-white/90" href="/#why">Why</a>
+      <a class="hover:text-white/90" href="/#how">How</a>
+      <a class="hover:text-white/90" href="/#launch">Launch</a>
+      <a class="hover:text-white/90" href="/donate">Support</a>
+    </nav>
+  </header>
+
+  <TerminalDonate />
+
+  <section class="mt-8 grid gap-4 md:grid-cols-2">
+    <a
+      href={venmoUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center justify-center rounded-2xl bg-cyan-400/15 px-5 py-3 text-sm font-semibold text-cyan-200 ring-1 ring-cyan-300/25 hover:bg-cyan-400/20"
+    >
+      Donate via Venmo (preferred)
+    </a>
+
+    <a
+      href={paypalUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center justify-center rounded-2xl bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 ring-1 ring-white/15 hover:bg-white/10"
+    >
+      Donate via PayPal
+    </a>
+
+    <div class="md:col-span-2 text-xs leading-6 text-white/55">
+      Venmo person-to-person transfers typically avoid processing fees. PayPal may apply standard processing fees.
+    </div>
+  </section>
+
+  <footer class="mt-12 border-t border-white/10 pt-6 text-xs text-white/45">
+    © {new Date().getFullYear()} Thesis Project. All rights reserved.
+  </footer>
+</Base>

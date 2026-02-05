@@ -1,13 +1,7 @@
 ---
 const id = "terminal-hero";
-const lines = [
-  { text: "> money must answer to physics, not politics.", delayMs: 260 },
-  { text: "> energy is the universal cost of doing work.", delayMs: 220 },
-  { text: "> THE anchors money to energy — for fairness and auditability.", delayMs: 220 },
-  { text: "> want access on launch day?", delayMs: 120 },
-];
+import { terminalFullCopyText } from "../content/terminalScript";
 
-const linesJson = JSON.stringify(lines);
 ---
 
 <section class="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] backdrop-blur md:p-8">
@@ -19,8 +13,25 @@ const linesJson = JSON.stringify(lines);
 
       <div class="mt-3 rounded-xl border border-white/10 bg-black/30 p-4 md:p-5">
         <pre class="m-0 overflow-x-auto text-sm leading-6 text-white/90 md:text-[15px]">
-<code id={id} class="block min-h-[8.5rem] whitespace-pre-wrap"></code><span class="terminal-cursor align-baseline">█</span>
+<code
+  id={id}
+  class="block min-h-[8.5rem] whitespace-pre-wrap"
+  aria-live="polite"
+  aria-label="Terminal narrative"
+></code><span class="terminal-cursor align-baseline">█</span>
         </pre>
+
+        <!-- SEO + accessibility: full narrative exists in DOM -->
+        <div class="sr-only">
+          <h2>ThesisWeb narrative</h2>
+          <pre>{terminalFullCopyText}</pre>
+        </div>
+
+        <noscript>
+          <pre class="mt-4 whitespace-pre-wrap text-white/90">
+{terminalFullCopyText}
+          </pre>
+        </noscript>
       </div>
 
       <p class="mt-4 max-w-2xl text-base leading-7 text-white/80">
@@ -29,10 +40,16 @@ const linesJson = JSON.stringify(lines);
       </p>
 
       <div class="mt-5 flex flex-col gap-3 sm:flex-row">
-        <a href="#launch" class="inline-flex items-center justify-center rounded-xl bg-cyan-400/15 px-4 py-2.5 text-sm font-semibold text-cyan-200 ring-1 ring-cyan-300/25 hover:bg-cyan-400/20">
+        <a
+          href="#launch"
+          class="inline-flex items-center justify-center rounded-xl bg-cyan-400/15 px-4 py-2.5 text-sm font-semibold text-cyan-200 ring-1 ring-cyan-300/25 hover:bg-cyan-400/20"
+        >
           Get Launch Access
         </a>
-        <a href="#support" class="inline-flex items-center justify-center rounded-xl bg-white/5 px-4 py-2.5 text-sm font-semibold text-white/90 ring-1 ring-white/15 hover:bg-white/10">
+        <a
+          href="#support"
+          class="inline-flex items-center justify-center rounded-xl bg-white/5 px-4 py-2.5 text-sm font-semibold text-white/90 ring-1 ring-white/15 hover:bg-white/10"
+        >
           Support the Build
         </a>
       </div>
@@ -40,7 +57,9 @@ const linesJson = JSON.stringify(lines);
 
     <div class="w-full md:w-[22rem]">
       <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-        <div class="text-sm font-semibold text-white/90">What you’re signing up for</div>
+        <div class="text-sm font-semibold text-white/90">
+          What you’re signing up for
+        </div>
         <ul class="mt-3 space-y-2 text-sm text-white/75">
           <li>• Launch-day access packet</li>
           <li>• Timeline + release notes</li>
@@ -66,17 +85,6 @@ const linesJson = JSON.stringify(lines);
     }
   </style>
 
-  <script type="module" define:vars={{ linesJson, id }}>
-    import { runTerminalTyper } from "./TerminalTyper";
+<script defer src="/js/terminalHeroClient.js"></script>
 
-    const el = document.getElementById(id);
-    if (el) {
-      const lines = JSON.parse(linesJson);
-      runTerminalTyper({
-        target: el,
-        lines,
-        cursorSelector: ".terminal-cursor",
-      });
-    }
-  </script>
 </section>
